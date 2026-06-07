@@ -45,6 +45,21 @@
     <label><input type="checkbox"> Strengthen GitHub portfolio (open-source contributions)</label>
     <label><input type="checkbox"> Publish final research paper/project showcase</label>
   </div>
+
+  <script>
+    // Save checklist state in localStorage
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((box, index) => {
+      // Load saved state
+      if(localStorage.getItem('checkbox' + index) === 'true') {
+        box.checked = true;
+      }
+      // Save state on change
+      box.addEventListener('change', () => {
+        localStorage.setItem('checkbox' + index, box.checked);
+      });
+    });
+  </script>
 </body>
 </html>
 
